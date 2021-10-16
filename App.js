@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import MainNavigator from './src/navigators/MainNavigator';
-import store from './src/store';
+import store from './src/slices';
 
 export function App() {
   return (

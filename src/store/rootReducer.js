@@ -4,7 +4,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
   user: userReducer,
-  restaurants: restaurantReducer
+  restaurant: restaurantReducer
 });
 
 export default rootReducer;

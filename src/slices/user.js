@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
   user: null
 };
@@ -12,4 +13,4 @@ const slice = createSlice({
   }
 });
 
-export default { reducer } = slice;
+export const { reducer } = slice;
