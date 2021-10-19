@@ -3,6 +3,7 @@ export default {
   address: 'Vestregaten 3, 5009 Bergen',
   description: 'Sumo serverer ferst Sushi og andre asiatiske retter',
   image: require('../../assets/restaurantDummy.jpg'),
+  stars: 5,
   menu: [
     {
       name: 'Maki',

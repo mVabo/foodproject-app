@@ -8,8 +8,10 @@ import RestaurantCard from '../components/RestaurantCard'
 import { Avatar, Button, IconButton, Searchbar } from 'react-native-paper'
 import colors from '../config/colors'
 import user from '../slices/user'
+import { NavigationContainer } from '@react-navigation/native'
+import routes from '../navigators/routes'
 
-const DiscoveryScreen = () => {
+const DiscoveryScreen = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const openSettings = () => {
@@ -60,7 +62,7 @@ const DiscoveryScreen = () => {
           data={restaurants}
           keyExtractor={item => item.id}
           renderItem={({item, index}) => {
-            return <RestaurantCard restaurant={item} />
+            return <RestaurantCard restaurant={item} onPress={() => navigation.navigate(routes.RESTAURANT)} />
           }}
         />
       </View>

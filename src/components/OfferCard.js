@@ -7,7 +7,11 @@ const OfferCard = ({ height = 150, width = 125, backgroundColor = colors.palette
   const date = new Date;
 
   const iconDimensions = height * 0.5;
-  const dur = moment.duration(moment().diff(offer.expiry));
+  const dur = moment.duration(moment(offer.expiry).diff(moment()));
+
+  if (dur.seconds() < 0) {
+    return null;
+  }
 
   return (
     <View style={[styles.container, { height, width, backgroundColor, margin }]}>
@@ -16,7 +20,7 @@ const OfferCard = ({ height = 150, width = 125, backgroundColor = colors.palette
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.price}>{offer.price} NOK</Text>
-        <Text style={styles.expiry}>EXPIRES IN {Math.floor(dur.minutes())}:{Math.floor(dur.seconds())}</Text>
+        <Text style={styles.expiry}>EXPIRES IN {dur.minutes()}:{dur.seconds()}</Text>
       </View>
     </View>
   )

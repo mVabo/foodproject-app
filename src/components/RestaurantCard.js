@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import colors from '../config/colors'
 
-const RestaurantCard = ({ restaurant, height = 175, margin = 5 }) => {
+const RestaurantCard = ({ restaurant, height = 175, margin = 5, onPress }) => {
   return (
-    <View style={[styles.container, { height, marginVertical: margin }]}>
+    <TouchableOpacity style={[styles.container, { height, marginVertical: margin }]} onPress={onPress}>
       <View style={styles.label}>
         <Text style={{ color: colors.white }}>Open</Text>
       </View>
@@ -13,7 +13,7 @@ const RestaurantCard = ({ restaurant, height = 175, margin = 5 }) => {
         <Text style={styles.nameTag}>{restaurant.name}</Text>
         <Text style={styles.addressTag}>{restaurant.address}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
