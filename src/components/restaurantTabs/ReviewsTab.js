@@ -6,9 +6,11 @@ const ReviewsTab = ({ restaurant }) => {
     <View>
       <Text></Text>
     </View>
-  )
+  );
 }
 
 export default ReviewsTab
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+})

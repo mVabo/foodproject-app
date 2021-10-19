@@ -13,11 +13,6 @@ const MainNavigator = () => (
   >
     <Tab.Screen 
       name={routes.DISCOVERY}
-      component={DiscoveryScreen}
-      options={{ headerShown: false }}
-    />
-    <Tab.Screen 
-      name={routes.RESTAURANT}
       component={RestaurantNavigator}
       options={{ headerShown: false }}
     />

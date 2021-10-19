@@ -6,6 +6,8 @@ import MenuTab from '../components/restaurantTabs/MenuTab'
 import ReviewsTab from '../components/restaurantTabs/ReviewsTab'
 import colors from '../config/colors'
 import restaurant from '../dummydata/restaurant'
+import Constants from 'expo-constants'
+import { IconButton } from 'react-native-paper'
 
 const tabs = [
   'Info',
@@ -14,11 +16,14 @@ const tabs = [
   'Reviews'
 ]
 
-const RestaurantScreen = () => {
+const RestaurantScreen = ({ navigation }) => {
   const [activeTab, setActiveTab] = useState('Info');
 
   return (
     <View style={styles.container}>
+      <View style={{ width: '100%', paddingTop: Constants.statusBarHeight, position: 'absolute', zIndex: 100 }}>
+        <IconButton icon="arrow-left" onPress={() => navigation.goBack()} color={colors.white} />
+      </View>
       <View style={styles.headerImage}>
         <Image source={restaurant.image} style={{ width: '100%', height: 300 }} />
       </View>
@@ -30,7 +35,7 @@ const RestaurantScreen = () => {
         <View style={styles.tabNav}>
           {tabs.map((item, index) => {
             return (
-              <TouchableOpacity onPress={() => setActiveTab(item)}>
+              <TouchableOpacity onPress={() => setActiveTab(item)} key={index}>
                 <Text style={[item == activeTab && {color: '#48E2EF'}, styles.tabItem]}>{item}</Text>
               </TouchableOpacity>
             );
