@@ -15,7 +15,14 @@ export default {
       price: 69.90
     },
   ],
-  reviews: {
-
-  }
+  reviews: [
+    {
+      stars: 5,
+      review: 'Excellent service and tasty sushi!'
+    },
+    {
+      stars: 5,
+      review: 'Enjoyable food in a great atmosphere'
+    }
+  ]
 }
