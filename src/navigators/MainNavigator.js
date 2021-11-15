@@ -4,6 +4,7 @@ import DiscoveryScreen from '../screens/DiscoveryScreen';
 import routes from './routes';
 import RestaurantScreen from '../screens/RestaurantScreen';
 import RestaurantNavigator from './RestaurantNavigator';
+import OrderScreen from '../screens/OrderScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +15,11 @@ const MainNavigator = () => (
     <Tab.Screen 
       name={routes.DISCOVERY}
       component={RestaurantNavigator}
+      options={{ headerShown: false }}
+    />
+    <Tab.Screen 
+      name={routes.ORDER}
+      component={OrderScreen}
       options={{ headerShown: false }}
     />
   </Tab.Navigator>
