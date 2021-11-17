@@ -1,4 +1,5 @@
 export default Object.freeze({
   DISCOVERY: 'Discovery',
-  RESTAURANT: 'Restaurant'
+  RESTAURANT: 'Restaurant',
+  ORDERS: 'Orders'
 })
