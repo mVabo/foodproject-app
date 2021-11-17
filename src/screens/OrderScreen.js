@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native'
 import DirectionsTab from '../components/restaurantTabs/DirectionsTab'
 import InfoTab from '../components/restaurantTabs/InfoTab'
 import colors from '../config/colors'
 import Constants from 'expo-constants'
 import { IconButton } from 'react-native-paper'
+import OrderCard from '../components/OrderCard';
+import orders from '../dummydata/orders';
 
 export const OrderScreen = ({ navigation }) => {
     return (
