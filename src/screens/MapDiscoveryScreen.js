@@ -30,8 +30,6 @@ const MapDiscoveryScreen = ({ navigation }) => {
     return <Text>Loading...</Text>
   }
 
-  console.log(location);
-
   return (
     <View style={styles.container}>
       <MapView
