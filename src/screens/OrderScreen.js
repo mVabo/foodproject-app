@@ -7,6 +7,7 @@ import Constants from 'expo-constants'
 import { IconButton } from 'react-native-paper'
 import OrderCard from '../components/OrderCard';
 import orders from '../dummydata/orders';
+import { nothing } from 'immer'
 
 export const OrderScreen = ({ navigation }) => {
     return (
@@ -14,15 +15,16 @@ export const OrderScreen = ({ navigation }) => {
             <View style={styles.header}>
                 <View style={styles.headerLeft}>
                     <Text style={styles.headerTag}>My Orders</Text>
-                    <Text style={styles.headerSub}>You have 1 active order(s)</Text>
+                    <Text style={styles.headerSub}>You have {orders.length} active order(s)</Text>
                 </View>
             </View>
             <View style={styles.container}>
                     <FlatList 
+                        marginHorizontal = {10}
                         data={orders}
                         keyExtractor={item => item.id}
                         renderItem={({item, index}) => {
-                        return <OrderCard order={item} onPress={() => navigation.navigate(routes.ORDER)} />
+                        return <OrderCard order={item} onPress={() => null} />
                         }}
                     />
             </View>
@@ -56,6 +58,7 @@ const styles = StyleSheet.create({
     },
     headerSub: { 
       fontWeight: '300',
-      fontSize: 18
+      fontSize: 16,
+      color: 'rgba(0, 0, 0, 0.5)'
     }
   })
