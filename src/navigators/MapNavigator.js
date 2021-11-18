@@ -12,8 +12,13 @@ const MapNavigator = () => (
     initialRouteName={routes.DISCOVERY}
   >
     <Stack.Screen 
-      name={routes.DISCOVERY}
+      name={routes.MAP_DISCOVERY}
       component={MapDiscoveryScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen 
+      name={routes.RESTAURANT}
+      component={RestaurantScreen}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>
