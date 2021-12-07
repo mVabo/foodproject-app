@@ -7,6 +7,7 @@ import RestaurantNavigator from './RestaurantNavigator';
 import OrderScreen from '../screens/OrderScreen';
 import MapNavigator from './MapNavigator';
 import { MaterialCommunityIcons } from '@expo/vector-icons';import colors from '../config/colors';
+import SettingsScreen from '../screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,6 +37,14 @@ const MainNavigator = () => (
       options={{ 
         headerShown: false,
         tabBarIcon: ({ size }) => <MaterialCommunityIcons name="home-variant-outline" color={colors.black} size={size} />
+      }}
+    />
+    <Tab.Screen 
+      name={routes.SETTINGS}
+      component={SettingsScreen}
+      options={{
+        headerShown: false,
+        tabBarIcon: ({ size }) => <MaterialCommunityIcons name="cog-outline" color={colors.black} size={size} />
       }}
     />
   </Tab.Navigator>

@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import colors from '../config/colors'
 import moment from 'moment'
 
+function timer(time) {
+  const [duration, setDuration] = useState();
+
+  useEffect(() => {
+    setDuration(moment.duration(moment(time).diff(moment())))
+    setInterval(() =>  setDuration(moment.duration(moment(time).diff(moment()))), 1000);
+  }, [])
+
+  if (!duration) return null;
+  
+  return `${duration.minutes()}:${duration.seconds()}`
+}
+
 const OfferCard = ({ height = 150, width = 125, backgroundColor = colors.palette.primary, offer, margin = 5 }) => {
-  const date = new Date;
-
   const iconDimensions = height * 0.5;
-  const dur = moment.duration(moment(offer.expiry).diff(moment()));
 
-  if (dur.seconds() < 0) {
-    return null;
-  }
+  if (moment.duration(moment(offer.expiry).diff(moment())).seconds() < 0) return null;
 
   return (
     <View style={[styles.container, { height, width, backgroundColor, margin }]}>
@@ -20,7 +28,7 @@ const OfferCard = ({ height = 150, width = 125, backgroundColor = colors.palette
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.price}>{offer.price} NOK</Text>
-        <Text style={styles.expiry}>EXPIRES IN {dur.minutes()}:{dur.seconds()}</Text>
+        <Text style={styles.expiry}>EXPIRES IN {timer(offer.expiry)}</Text>
       </View>
     </View>
   )
