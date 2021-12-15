@@ -5,6 +5,7 @@ export default [
     name: 'Sumo',
     address: 'Vestregaten 3, 5009 Bergen',
     image: require('../../assets/restaurantDummy.jpg'),
+    info: 'Sumo tilbyr autentisk sushi for enhver smak',
     location: {
       latitude: 60.392909,
       longitude: 5.318855

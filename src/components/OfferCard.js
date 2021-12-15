@@ -18,8 +18,9 @@ function timer(time) {
 
 const OfferCard = ({ height = 150, width = 125, backgroundColor = colors.palette.primary, offer, margin = 5 }) => {
   const iconDimensions = height * 0.5;
+  const time = offer.expiry;
 
-  if (moment.duration(moment(offer.expiry).diff(moment())).seconds() < 0) return null;
+  if (moment.duration(moment(offer.expiry).diff(moment())).seconds() <= 0) return null;
 
   return (
     <View style={[styles.container, { height, width, backgroundColor, margin }]}>
